@@ -1,0 +1,13 @@
+# Optional community clients. Install only what you use.
+
+# MyFitnessPal scraper (MFP_SOURCE=scraper). Reads your browser's MFP cookies.
+# NOTE: it pins typing-extensions==4.12.2, which conflicts with current pydantic.
+# Prefer the official export or Health Connect; if you need the scraper, install it
+# in a separate virtualenv and export its output to CSV into data/inbox/myfitnesspal/.
+# myfitnesspal>=2.1
+
+# Static chart export (PNG/SVG) from Plotly; needs a local Chrome/Edge.
+kaleido>=1.0
+
+# Linting
+ruff>=0.6

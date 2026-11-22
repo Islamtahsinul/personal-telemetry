@@ -1,0 +1,29 @@
+# --- Core ---
+pydantic>=2.7,<3
+pydantic-settings>=2.4,<3
+python-dotenv>=1.0
+tzdata>=2024.1         # IANA timezones on Windows
+keyring>=24.0          # secrets in the OS credential store
+duckdb>=1.1,<2
+pandas>=2.2,<3
+numpy>=1.26
+pyarrow>=16.0          # fast DuckDB <-> pandas interchange
+scipy>=1.12            # correlation p-values
+
+# --- Connectors ---
+renpho-api>=0.2,<1     # Renpho sign-in on the Connections page
+httpx>=0.27,<1         # WHOOP, Open-Meteo, ActivityWatch, Ollama
+gspread>=6.0,<7        # Monzo -> Google Sheets export
+openpyxl>=3.1          # Monzo sheet downloaded/synced as .xlsx
+xlrd>=2.0              # StayFree .xls screen-time reports
+google-auth>=2.29      # service-account auth for gspread
+
+# --- LLM ---
+anthropic>=1.15,<2     # optional: only needed when LLM_PROVIDER=anthropic
+
+# --- UI ---
+streamlit>=1.50
+plotly>=5.22
+
+# --- Dev ---
+pytest>=8.0

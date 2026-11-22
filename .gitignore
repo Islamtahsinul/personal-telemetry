@@ -1,0 +1,17 @@
+# Secrets and personal data - never commit
+.env
+secrets/
+data/
+*.duckdb
+*.duckdb.wal
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
