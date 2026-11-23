@@ -125,7 +125,10 @@ Every load is an idempotent upsert, so you can schedule a daily sync safely:
 
 ## Privacy
 
-* All data stays in `data/` (git-ignored). The Streamlit server binds to `localhost` only.
+* All data stays in `data/` (git-ignored). `python cli.py ui` binds the Streamlit server to `localhost` only.
+  If you run `streamlit run ui/app.py` yourself, run it from the repo root (so `.streamlit/config.toml` applies)
+  or add `--server.address localhost`; otherwise Streamlit listens on every network interface.
+  The dashboard has no login, so never expose it to other machines or the internet.
 * With `LLM_PROVIDER=ollama`, nothing leaves the machine.
 * With `LLM_PROVIDER=anthropic`, only the aggregated payload (averages, correlations, anomalies) is
   sent. Notes, transactions and app titles are never sent, and the UI shows the exact payload before you generate.

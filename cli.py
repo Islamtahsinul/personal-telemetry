@@ -143,7 +143,11 @@ def cmd_export(args: argparse.Namespace) -> int:
 def cmd_ui(args: argparse.Namespace) -> int:
     """Launch Streamlit."""
     app = Path(__file__).resolve().parent / "ui" / "app.py"
-    return subprocess.call([sys.executable, "-m", "streamlit", "run", str(app), "--server.port", str(args.port)])
+    # Pass the bind address explicitly: .streamlit/config.toml is only read from the
+    # current directory, and Streamlit otherwise listens on every network interface.
+    return subprocess.call([sys.executable, "-m", "streamlit", "run", str(app),
+                            "--server.address", "localhost", "--server.port", str(args.port)],
+                           cwd=str(app.parent.parent))
 
 
 def build_parser() -> argparse.ArgumentParser:

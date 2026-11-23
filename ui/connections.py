@@ -338,8 +338,10 @@ with section("🤖 AI summaries", "Who writes the weekly executive summary."):
                 st.rerun()
         with st.form("ollama_host"):
             host = st.text_input("Ollama server address", value=settings.ollama_host,
-                                 help="e.g. http://192.168.1.20:11434 for a home PC (start Ollama there with "
-                                      "OLLAMA_HOST=0.0.0.0 so it accepts network connections).")
+                                 help="e.g. http://192.168.1.20:11434 for another PC on your home network. Ollama "
+                                      "has no authentication: on that PC set OLLAMA_HOST to its LAN address only, "
+                                      "allow port 11434 from your local network in its firewall, and never forward "
+                                      "that port to the internet.")
             if st.form_submit_button("Save address"):
                 save({"ollama_host": host.strip().rstrip("/")}, "Ollama address saved")
         if models:
